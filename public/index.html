@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Async JS</title>
+  </head>
+
+  <body>
+    <main>
+      <h1>ASYNC JS</h1>
+      <p>
+        Application makes two API fetch request.
+        <br />
+        First request fetches geographical coordinates for the user input city.
+        <br />
+        Second request fetches weaher data for the coordinates received from the first request.
+      </p>
+      <form>
+        <label>
+          City
+          <input type="text" name="city" placeholder="Helsinki" />
+        </label>
+        <button type="submit">Get weather</button>
+      </form>
+      <script src="../src/main.js"></script>
+    </main>
+  </body>
+</html>
