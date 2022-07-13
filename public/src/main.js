@@ -5,7 +5,7 @@ const loadingSpinner = document.querySelector('.loading_popup');
 const toggleLoadingSpinner = () => loadingSpinner.classList.toggle('loading');
 
 const geocodingBaseAPI =
-  'http://www.mapquestapi.com/geocoding/v1/address?key=er3hjA7tECfpUhqpuk6aCeNPk4vGxdHq&location=';
+  'https://www.mapquestapi.com/geocoding/v1/address?key=er3hjA7tECfpUhqpuk6aCeNPk4vGxdHq&location=';
 
 const weatherBaseAPI = 'https://www.7timer.info/bin/civil.php?unit=metric&output=json';
 
@@ -90,9 +90,11 @@ const handleSubmit = async (e) => {
   }
 };
 
+// toggleLoadingSpinner() will alter loading spinner logic if combineHandler is in use.
+
 const handleSubmitWithPromises = (e) => {
   e.preventDefault();
-  toggleLoadingSpinner();
+  // toggleLoadingSpinner();
   const inputField = document.querySelector('input');
   getCoordinatesPromise(inputField.value)
     .then((coord) => getWeatherPromise(coord.lat, coord.lng))
@@ -100,12 +102,12 @@ const handleSubmitWithPromises = (e) => {
       const { temp2m, cloudcover, wind10m } = weatherData.dataseries[0];
       const city = inputField.value;
       renderResultsDOM(temp2m, wind10m, cloudcover, city);
-      toggleLoadingSpinner();
+      // toggleLoadingSpinner();
       inputField.focus();
     })
     .catch((err) => {
       renderErrorDOM(err);
-      toggleLoadingSpinner();
+      // toggleLoadingSpinner();
     });
 };
 
